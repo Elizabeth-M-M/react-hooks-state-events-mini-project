@@ -1,9 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
+import Task from "./Task";
 
-function TaskList() {
+function TaskList({tasks, onDelete}) {
   return (
     <div className="tasks">
-      {/* display a list of tasks using Task component */}
+      {tasks.map((task, ind)=>
+      <Task
+      key={ind}
+      category={task.category}
+      text={task.text}
+      onDelete={onDelete}/>)}
     </div>
   );
 }
